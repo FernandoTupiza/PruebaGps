@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> My Profile </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+
+  <!-- FORM -->
+<!-- with name set -->
+<form [formGroup]="credentials" (ngSubmit)="addRegister()">
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+  </ion-item>
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input type="number" placeholder="Cedula" formControlName="idCard"></ion-input>
+  </ion-item>
+
+  <ion-item fill="solid" class="ion-margin-bottom">
+    <ion-input type="number" placeholder="Numero de familiares" formControlName="familyMembers"></ion-input>
+  </ion-item>
+
+  <div class="preview">
+    <ion-avatar (click)="changeImage()">
+      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+
+      <ng-template #placeholder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
+  </div>
+
+   <div class="ion-padding" style="text-align: center;">
+    <ion-label>CORDENADAS</ion-label>
+  </div>
+
+  <div class="ion-padding" style="text-align: center;">
+
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input [disabled]="true" value="{{latitud1}}" type="number" placeholder="Latitud" formControlName="latitud"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="ion-padding" style="text-align: center;">
+
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input [disabled]="true" value="{{longitud1}}" type="number" placeholder="Longitud" formControlName="longitud"></ion-input>
+    </ion-item>
+  </div>
+
+
+  <div class="ion-padding" style="text-align: center;">
+    <ion-button size="large" shape="round" exapnd="full" (click)=obtenerCoordenadas()>  <ion-icon name="location-outline"></ion-icon></ion-button>
+
+
+
+  </div>
+
+  <ion-button expand="full" type="button" (click)="addRegister()">Create account</ion-button>
+
+
+</form>
+  <!-- FIN FORM -->
+
+  
+
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center"> My Profile </ion-title>
+    <ion-title >Aplicación Censo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-title>BIENVENIDO AL CENSO 2022</ion-title>
+  <ion-img src="https://www.uleam.edu.ec/wp-content/uploads/2022/10/2-censo-en-linea-2--1024x1024.png" class="ion-margin-vertical" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+  <form [formGroup]="credentials" (ngSubmit)="login()">
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+      <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Correo no valido</ion-note>
+    </ion-item>
+
+    <ion-item fill="solid" class="ion-margin-bottom">
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña debe tener mas de 6 caracteres</ion-note>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="!credentials.valid">Login</ion-button>
+    <ion-button expand="full" type="button" (click)="register()">Create account</ion-button>
+  </form>
+
+
+  
+</ion-content>
