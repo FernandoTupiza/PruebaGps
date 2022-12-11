@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="log-out"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center"> My Profile </ion-title>
+    <ion-title class="ion-text-center">FORMULARIO CENSO</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -28,20 +28,24 @@
     <ion-input type="number" placeholder="Numero de familiares" formControlName="familyMembers"></ion-input>
   </ion-item>
 
+  <div class="ion-padding" style="text-align: center;">
+    <ion-label>FOTO DE LA CASA CENSADA</ion-label>
+  </div>
+
   <div class="preview">
-    <ion-avatar (click)="changeImage()">
+    <ion-image (click)="changeImage()">
       <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
 
       <ng-template #placeholder_avatar>
         <div class="fallback">
-          <p>Select avatar</p>
+        
         </div>
       </ng-template>
-    </ion-avatar>
+    </ion-image>
   </div>
 
    <div class="ion-padding" style="text-align: center;">
-    <ion-label>CORDENADAS</ion-label>
+    <ion-label>COORDENADAS</ion-label>
   </div>
 
   <div class="ion-padding" style="text-align: center;">
@@ -66,7 +70,7 @@
 
   </div>
 
-  <ion-button expand="full" type="button" (click)="addRegister()">Create account</ion-button>
+  <ion-button expand="full" type="button" (click)="addRegister()">FINALIZAR CENSO</ion-button>
 
 
 </form>
